@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             if(isChecked){
                 binding.rbTrue.isChecked = true
             }else{
-                binding.rbFalse.isChecked = false
+                binding.rbFalse.isChecked = true
 
             }
         }
