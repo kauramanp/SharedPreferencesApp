@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Shared Preferences App</string>
+    <string name="save">Save</string>
+    <string name="update">Update</string>
+    <string name="enter_integer_to_save">Enter Integer To Save</string>
+    <string name="enter_float_to_save">Enter Float To Save</string>
+    <string name="enter_long_to_save">Enter Long To Save</string>
+    <string name="enter_string_to_save">Enter String To Save</string>
+    <string name="select_boolean_value_to_save">Select Boolean Value To Save</string>
+    <string name="true_value">True</string>
+    <string name="false_value">False</string>
+    <string name="data_saved_successfully">Preferences updated successfully</string>
+</resources>

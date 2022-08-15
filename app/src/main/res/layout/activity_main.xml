@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/margin_10dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789"
+        android:text='@string/enter_integer_to_save' />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:id="@+id/etInteger"
+        android:hint='@string/enter_integer_to_save' />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789."
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text='@string/enter_float_to_save' />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789"
+        android:inputType="numberDecimal"
+        android:id="@+id/etFloat"
+        android:hint="@string/enter_float_to_save" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789."
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text='@string/enter_long_to_save' />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="0123456789"
+        android:inputType="numberDecimal"
+        android:id="@+id/etLong"
+        android:hint="@string/enter_long_to_save" />
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text='@string/enter_string_to_save' />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM"
+        android:inputType="textCapWords"
+        android:id="@+id/etString"
+        android:hint="@string/enter_string_to_save" />
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text='@string/select_boolean_value_to_save' />
+
+    <RadioGroup
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/rg">
+
+        <RadioButton
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/rbTrue"
+            android:text="@string/true_value"/>
+
+        <RadioButton
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/rbFalse"
+            android:text="@string/false_value"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:text="@string/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
+</layout>
