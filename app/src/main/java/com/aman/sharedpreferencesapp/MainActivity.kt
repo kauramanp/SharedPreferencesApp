@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aman.sharedpreferencesapp.databinding.ActivityMainBinding
+import com.aman.sharedpreferencesapp.models.ModelData
+import com.google.gson.Gson;
 
 class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences : SharedPreferences
     lateinit var editor: SharedPreferences.Editor
     private lateinit var binding: ActivityMainBinding
-
+    var gson = Gson()
+    var model = ModelData()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences = getSharedPreferences(resources.getString(R.string.app_name), Context.MODE_PRIVATE)
@@ -33,8 +36,17 @@ class MainActivity : AppCompatActivity() {
                 binding.rbTrue.isChecked = true
             }else{
                 binding.rbFalse.isChecked = true
-
             }
+        }
+
+        if(sharedPreferences.contains("model")){
+            var string = sharedPreferences.getString("model","")
+            if(string.isNullOrEmpty() ){
+                model = gson.fromJson(string, ModelData::class.java)
+                binding?.etString?.setText(model.name?:"")
+                binding?.etInteger?.setText(model.number)
+            }
+
         }
         binding.btnSave.setOnClickListener {
             if(binding.etInteger.text.toString().isNullOrEmpty()){
@@ -56,6 +68,8 @@ class MainActivity : AppCompatActivity() {
                 editor.putFloat("float",binding.etFloat.text.toString().toFloat())
                 editor.putLong("long",binding.etLong.text.toString().toLong())
                 editor.putString("string",binding.etString.text.toString())
+                var stringify = gson.toJson(ModelData(binding.etString.text.toString(), Integer.valueOf(binding.etString.text.toString())))
+                editor.putString("model",stringify)
                 if(binding.rbTrue.isChecked)
                     editor.putBoolean("bool",true)
                 else
