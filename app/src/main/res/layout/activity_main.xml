@@ -36,7 +36,7 @@
     <EditText
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:digits="0123456789"
+        android:digits="0123456789."
         android:inputType="numberDecimal"
         android:id="@+id/etFloat"
         android:hint="@string/enter_float_to_save" />
@@ -44,7 +44,6 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:digits="0123456789."
         android:layout_marginTop="@dimen/margin_10dp"
         android:text='@string/enter_long_to_save' />
 
@@ -52,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:digits="0123456789"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:id="@+id/etLong"
         android:hint="@string/enter_long_to_save" />
 
@@ -100,6 +99,13 @@
     <Button
         android:id="@+id/btnSave"
         android:text="@string/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp" />
+    <Button
+        android:id="@+id/btnClear"
+        android:text="@string/clear_prefs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/fab_margin"

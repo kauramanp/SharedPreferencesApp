@@ -1,10 +1,13 @@
 package com.aman.sharedpreferencesapp
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ContentInfoCompat.Flags
 import com.aman.sharedpreferencesapp.databinding.ActivityMainBinding
 import com.aman.sharedpreferencesapp.models.ModelData
 import com.google.gson.Gson;
@@ -68,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                 editor.putFloat("float",binding.etFloat.text.toString().toFloat())
                 editor.putLong("long",binding.etLong.text.toString().toLong())
                 editor.putString("string",binding.etString.text.toString())
-                var stringify = gson.toJson(ModelData(binding.etString.text.toString(), Integer.valueOf(binding.etString.text.toString())))
+                var stringify = gson.toJson(ModelData(binding.etString.text.toString(), Integer.valueOf(binding.etInteger.text.toString())))
                 editor.putString("model",stringify)
                 if(binding.rbTrue.isChecked)
                     editor.putBoolean("bool",true)
@@ -78,6 +81,23 @@ class MainActivity : AppCompatActivity() {
 
                 editor.commit()
         }
+        }
+
+        binding.btnClear.setOnClickListener {
+            AlertDialog.Builder(this).apply{
+                setTitle(resources.getString(R.string.delete_prefs))
+                setMessage(resources.getString(R.string.delete_prefs_msg))
+                setPositiveButton(resources.getString(R.string.yes)){_,_->
+                    editor.clear()
+                    editor.apply()
+                    var intent = Intent(this@MainActivity,MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
+                    this@MainActivity.finish()
+                }
+                setNegativeButton(resources.getString(R.string.no)){_,_->}
+                show()
+            }
         }
     }
 
